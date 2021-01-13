@@ -1,0 +1,83 @@
+{
+	"pages": [{
+		"path": "pages/tabBar/index/index",
+		"style": {
+			"navigationBarTitleText": "首页"
+		}
+	},
+	{
+		"path": "pages/tabBar/message/index",
+		"style": {
+			"navigationBarTitleText": "消息"
+		}
+	},
+	{
+		"path": "pages/tabBar/myinfo/index",
+		"style": {
+			"navigationBarTitleText": "我的"
+		}
+	},
+	{
+		"path": "pages/tabBar/config/index",
+		"style": {
+			"navigationBarTitleText": "配置"
+		}
+	}
+	    ,{
+            "path" : "pages/index/scan/scan",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "扫码",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/index/process/process",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "流程",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+    ],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8",
+		"app-plus": {
+			"background": "#efeff4"
+		}
+	},
+	"tabBar": {
+		"color": "#7A7E83",
+		"selectedColor": "#007AFF",
+		"borderStyle": "black",
+		"backgroundColor": "#F8F8F8",
+		"list": [{
+				"pagePath": "pages/tabBar/index/index",
+				"iconPath": "static/icon_sy@3x.png",
+				"selectedIconPath": "static/icon_sy_active@3x.png",
+				"text": "首页"
+			},
+			{
+				"pagePath": "pages/tabBar/message/index",
+				"iconPath": "static/icon_message@3x.png",
+				"selectedIconPath": "static/icon_message_active@3x.png",
+				"text": "消息"
+			}, {
+				"pagePath": "pages/tabBar/myinfo/index",
+				"iconPath": "static/icon_my@3x.png",
+				"selectedIconPath": "static/icon_my_active@3x.png",
+				"text": "我的"
+			}, {
+				"pagePath": "pages/tabBar/config/index",
+				"iconPath": "static/icon_set@3x.png",
+				"selectedIconPath": "static/icon_set_active@3x.png",
+				"text": "配置"
+			}
+		]
+	}
+}

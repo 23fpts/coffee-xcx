@@ -1,0 +1,50 @@
+{
+  "pages": [
+    "pages/tabBar/index/index",
+    "pages/tabBar/message/index",
+    "pages/tabBar/myinfo/index",
+    "pages/tabBar/config/index",
+    "pages/index/scan/scan",
+    "pages/index/process/process"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#007AFF",
+    "borderStyle": "black",
+    "backgroundColor": "#F8F8F8",
+    "list": [
+      {
+        "pagePath": "pages/tabBar/index/index",
+        "iconPath": "static/icon_sy@3x.png",
+        "selectedIconPath": "static/icon_sy_active@3x.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/tabBar/message/index",
+        "iconPath": "static/icon_message@3x.png",
+        "selectedIconPath": "static/icon_message_active@3x.png",
+        "text": "消息"
+      },
+      {
+        "pagePath": "pages/tabBar/myinfo/index",
+        "iconPath": "static/icon_my@3x.png",
+        "selectedIconPath": "static/icon_my_active@3x.png",
+        "text": "我的"
+      },
+      {
+        "pagePath": "pages/tabBar/config/index",
+        "iconPath": "static/icon_set@3x.png",
+        "selectedIconPath": "static/icon_set_active@3x.png",
+        "text": "配置"
+      }
+    ]
+  },
+  "usingComponents": {}
+}
