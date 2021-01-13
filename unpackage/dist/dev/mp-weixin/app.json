@@ -5,7 +5,8 @@
     "pages/tabBar/myinfo/index",
     "pages/tabBar/config/index",
     "pages/index/scan/scan",
-    "pages/index/process/process"
+    "pages/index/process/process",
+    "pages/index/result/result"
   ],
   "subPackages": [],
   "window": {
@@ -46,5 +47,6 @@
       }
     ]
   },
-  "usingComponents": {}
+  "usingComponents": {},
+  "sitemapLocation": "sitemap4.json"
 }
