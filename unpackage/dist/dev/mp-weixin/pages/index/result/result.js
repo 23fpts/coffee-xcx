@@ -1,6 +1,6 @@
 (global["webpackJsonp"] = global["webpackJsonp"] || []).push([["pages/index/result/result"],{
 
-/***/ 60:
+/***/ 55:
 /*!***********************************************************************************************************!*\
   !*** /Users/thc/Documents/HBuilderProjects/coffee-xcx/main.js?{"page":"pages%2Findex%2Fresult%2Fresult"} ***!
   \***********************************************************************************************************/
@@ -16,5 +16,5 @@ createPage(_result.default);
 
 /***/ })
 
-},[[60,"common/runtime","common/vendor"]]]);
+},[[55,"common/runtime","common/vendor"]]]);
 //# sourceMappingURL=../../../../.sourcemap/mp-weixin/pages/index/result/result.js.map
