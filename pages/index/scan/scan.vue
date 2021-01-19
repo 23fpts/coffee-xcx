@@ -1,23 +1,23 @@
 <template>
 	<view class="app-container">
 		<view class="top-pic">
-			<image src="../../../static/img_bg_1@3x.png" style="width: 750rpx; height: 320rpx;" mode="scaleToFill" ></image>
+			<image :src="picUrl+'img_bg_1@3x.png'" style="width: 750rpx; height: 320rpx;" mode="scaleToFill" ></image>
 		</view>
 		<view class="top-three-button">
-			<view class="top-three-button-single">
-				<image src="../../../static/img_up@3x.png" style="width: 220rpx; height: 210rpx;" mode="scaleToFill"></image>
+			<view class="top-three-button-single" @click="uploadPicCover">
+				<image :src="picUrl+'img_up@3x.png'" style="width: 220rpx; height: 210rpx;" mode="scaleToFill"></image>
 				<view class="top-three-button-single-detail">
 					<text>上传杯盖照片</text>
 				</view>
 			</view>
 			<view class="top-three-button-single">
-				<image src="../../../static/img_up_2@3x.png" style="width: 220rpx; height: 210rpx;" mode="scaleToFill"></image>
+				<image :src="picUrl+'img_up_2@3x.png'" style="width: 220rpx; height: 210rpx;" mode="scaleToFill"></image>
 				<view class="top-three-button-single-detail">
 					<text>上传杯侧照片</text>
 				</view>
 			</view>
 			<view class="top-three-button-single">
-				<image src="../../../static/img_up_3@3x.png" style="width: 220rpx; height: 210rpx;" mode="scaleToFill" ></image>
+				<image :src="picUrl+'img_up_3@3x.png'" style="width: 220rpx; height: 210rpx;" mode="scaleToFill" ></image>
 				<view class="top-three-button-single-detail">
 					<text>上传杯底照片</text>
 				</view>
@@ -46,11 +46,11 @@
 					<picker mode="date" :value="birthday" @change="bindDateChange">
 						<view v-if="!judgeSelected(birthday)" class="info-table-item-detail-bd-unselected">
 							<text>选择出生日期</text>
-							<image src="../../../static/icon_left@3x.png" style="width: 40rpx; height: 40rpx;" mode="scaleToFill"></image>
+							<image :src="picUrl+'icon_left@3x.png'" style="width: 40rpx; height: 40rpx;" mode="scaleToFill"></image>
 						</view>
 						<view v-if="judgeSelected(birthday)" class="info-table-item-detail-bd-selected">
 							<text>{{birthday}}</text>
-							<image src="../../../static/icon_left@3x.png" style="width: 40rpx; height: 40rpx;" mode="scaleToFill"></image>
+							<image :src="picUrl+'icon_left@3x.png'" style="width: 40rpx; height: 40rpx;" mode="scaleToFill"></image>
 						</view>
 					</picker>
 					
@@ -76,11 +76,11 @@
 					<picker @change="bindOccupationChange" :value="occupation" :range="occupationList">
 						<view v-if="!judgeSelected(occupation)" class="info-table-item-detail-bd-unselected">
 							<text>选择职业</text>
-							<image src="../../../static/icon_left@3x.png" style="width: 40rpx; height: 40rpx;" mode="scaleToFill"></image>
+							<image :src="picUrl+'icon_left@3x.png'" style="width: 40rpx; height: 40rpx;" mode="scaleToFill"></image>
 						</view>
 						<view v-if="judgeSelected(occupation)" class="info-table-item-detail-bd-selected">
 							<text>{{occupation}}</text>
-							<image src="../../../static/icon_left@3x.png" style="width: 40rpx; height: 40rpx;" mode="scaleToFill"></image>
+							<image :src="picUrl+'icon_left@3x.png'" style="width: 40rpx; height: 40rpx;" mode="scaleToFill"></image>
 						</view>
 					</picker>
 				</view>
@@ -94,11 +94,11 @@
 					<picker @change="bindMarriageChange" :value="marriage" :range="marriageList">
 						<view v-if="!judgeSelected(marriage)" class="info-table-item-detail-bd-unselected">
 							<text>选择婚姻状态</text>
-							<image src="../../../static/icon_left@3x.png" style="width: 40rpx; height: 40rpx;" mode="scaleToFill"></image>
+							<image :src="picUrl+'icon_left@3x.png'" style="width: 40rpx; height: 40rpx;" mode="scaleToFill"></image>
 						</view>
 						<view v-if="judgeSelected(marriage)" class="info-table-item-detail-bd-selected">
 							<text>{{marriage}}</text>
-							<image src="../../../static/icon_left@3x.png" style="width: 40rpx; height: 40rpx;" mode="scaleToFill"></image>
+							<image :src="picUrl+'icon_left@3x.png'" style="width: 40rpx; height: 40rpx;" mode="scaleToFill"></image>
 						</view>
 					</picker>
 				
@@ -116,9 +116,12 @@
 </template>
 
 <script>
+	import {picUrl as picUrlUtils, apiUrl as apiUrlUtils} from '@/utils/api.js'
 	export default {
 		data() {
 			return {
+				picUrl: '',
+				apiUrl: '',
 				direction: '',
 				direction_selected: 0,
 				birthday: '',
@@ -130,6 +133,10 @@
 				marriageList: ['单身', '柏拉图式', '复杂的', '恋爱中', '刚分手', '已婚', '离婚']
 				
 			}
+		},
+		created() {
+			this.picUrl = picUrlUtils
+			this.apiUrl = apiUrlUtils
 		},
 		methods: {
 			radioChange(e) {
@@ -148,6 +155,12 @@
 				console.log('gender:'+this.gender)
 				console.log('occupation:'+this.occupation)
 				console.log('marriage:'+this.marriage)
+				uni.navigateTo({
+				            // url: 'test?id=1&name=uniapp'  c传递参数
+				
+				            url:"/pages/index/result/result"
+				
+				        })
 			},
 			judgeSelected(item) {
 				if (item === null || item === undefined || item === '') { 
@@ -173,6 +186,36 @@
 				// console.log('value: '+e.target.value)
 				// console.log('string: '+this.occupationList[e.target.value])
 				this.marriage = this.marriageList[e.target.value]
+			},
+			// 上传
+			uploadPic() {
+				uni.chooseImage({
+				    success: (chooseImageRes) => {
+				        const tempFilePaths = chooseImageRes.tempFilePaths;
+				        const uploadTask = uni.uploadFile({
+				            url: this.apiUrl +'coffee-xcx/files', //仅为示例，非真实的接口地址
+				            filePath: tempFilePaths[0],
+				            name: 'file',
+				            success: (uploadFileRes) => {
+				                console.log(uploadFileRes.data);
+				            }
+				        });
+				
+				        uploadTask.onProgressUpdate((res) => {
+				            console.log('上传进度' + res.progress);
+				            console.log('已经上传的数据长度' + res.totalBytesSent);
+				            console.log('预期需要上传的数据总长度' + res.totalBytesExpectedToSend);
+				
+				            // 测试条件，取消上传任务。
+				            // if (res.progress > 50) {
+				            //     uploadTask.abort();
+				            // }
+				        });
+				    }
+				});
+			},
+			uploadPicCover () {
+				this.uploadPic()
 			}
 		}
 	}

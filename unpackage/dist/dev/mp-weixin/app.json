@@ -5,7 +5,8 @@
     "pages/tabBar/myinfo/index",
     "pages/tabBar/config/index",
     "pages/index/scan/scan",
-    "pages/index/process/process"
+    "pages/index/process/process",
+    "pages/index/result/result"
   ],
   "subPackages": [],
   "window": {
@@ -45,6 +46,11 @@
         "text": "配置"
       }
     ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
   },
   "usingComponents": {}
 }

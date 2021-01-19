@@ -1,33 +1,33 @@
 <template>
 	<view class="app-container">
 		<view class="top-pic">
-			<image style="width: 750rpx; height: 439rpx;" src="../../../static/img_us_bg@3x.png" mode="scaleToFill" ></image>
+			<image style="width: 750rpx; height: 439rpx;" :src="picUrl+'img_us_bg@3x.png'" mode="scaleToFill" ></image>
 			<view class="Myiu">
 				<text>Myiu ></text>
 			</view>
 			<view class="VIP">普通会员</view>
 			<view class="join">加入会员</view>
 			<view class="head-pic">
-				<image style="height: 74rpx; width: 74rpx;" src="/static/头像@3x.png" mode="scaleToFill"></image>
+				<image style="height: 74rpx; width: 74rpx;" :src="picUrl+'avatar@3x.png'" mode="scaleToFill"></image>
 			</view>
 		</view>
 		<view class="selected-container">
 			<view class="config-item">
 				<view class="config-item-pic">
-					<image src="../../../static/icon_phone@3x.png" style="width: 60rpx; height: 60rpx;" mode="scaleToFill"></image>
+					<image :src="picUrl+'icon_phone@3x.png'" style="width: 60rpx; height: 60rpx;" mode="scaleToFill"></image>
 				</view>
 				<view class="config-item-info">
 					<view class="config-item-info-detail">
 						<view class="config-item-info-detail-text">
 							<text>手机号</text>
 						</view>
-						<button class="fast-button" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">快速绑定</button>
+						<button class="fast-button" open-type="getPhoneNumber" @getphonenumber="getPhoneNumber">快速绑定</button>
 					</view>
 				</view>
 			</view>
 			<view class="config-item">
 				<view class="config-item-pic">
-					<image src="../../../static/icon_shengri@3x.png" style="width: 60rpx; height: 60rpx;" mode="scaleToFill"></image>
+					<image :src="picUrl+'icon_shengri@3x.png'" style="width: 60rpx; height: 60rpx;" mode="scaleToFill"></image>
 				</view>
 				<view class="config-item-info">
 					<view class="config-item-info-detail">
@@ -36,11 +36,11 @@
 						</view>
 						<picker mode="date" :value="birthday" @change="bindDateChange">
 							<view v-if="!judgeSelected(birthday)" class="info-table-item-detail-bd-unselected">
-								<image src="../../../static/icon_left@3x.png" style="width: 40rpx; height: 40rpx;" mode="scaleToFill"></image>
+								<image :src="picUrl+'icon_left@3x.png'" style="width: 40rpx; height: 40rpx;" mode="scaleToFill"></image>
 							</view>
 							<view v-if="judgeSelected(birthday)" class="info-table-item-detail-bd-selected">
 								<text>{{birthday}}</text>
-								<image src="../../../static/icon_left@3x.png" style="width: 40rpx; height: 40rpx;" mode="scaleToFill"></image>
+								<image :src="picUrl+'icon_left@3x.png'" style="width: 40rpx; height: 40rpx;" mode="scaleToFill"></image>
 							</view>
 						</picker>
 					</view>
@@ -48,7 +48,7 @@
 			</view>
 			<view class="config-item">
 				<view class="config-item-pic">
-					<image src="../../../static/icon_xingbie@3x.png" style="width: 60rpx; height: 60rpx;" mode="scaleToFill"></image>
+					<image :src="picUrl+'icon_xingbie@3x.png'" style="width: 60rpx; height: 60rpx;" mode="scaleToFill"></image>
 				</view>
 				<view class="config-item-info">
 					<view class="config-item-info-detail">
@@ -66,7 +66,7 @@
 			</view>
 			<view class="config-item">
 				<view class="config-item-pic">
-					<image src="../../../static/icon_zhiye@3x.png" style="width: 60rpx; height: 60rpx;" mode="scaleToFill"></image>
+					<image :src="picUrl+'icon_zhiye@3x.png'" style="width: 60rpx; height: 60rpx;" mode="scaleToFill"></image>
 				</view>
 				<view class="config-item-info">
 					<view class="config-item-info-detail">
@@ -75,11 +75,11 @@
 						</view>
 						<picker @change="bindOccupationChange" :value="occupation" :range="occupationList">
 							<view v-if="!judgeSelected(occupation)" class="info-table-item-detail-bd-unselected">
-								<image src="../../../static/icon_left@3x.png" style="width: 40rpx; height: 40rpx;" mode="scaleToFill"></image>
+								<image :src="picUrl+'icon_left@3x.png'" style="width: 40rpx; height: 40rpx;" mode="scaleToFill"></image>
 							</view>
 							<view v-if="judgeSelected(occupation)" class="info-table-item-detail-bd-selected">
 								<text>{{occupation}}</text>
-								<image src="../../../static/icon_left@3x.png" style="width: 40rpx; height: 40rpx;" mode="scaleToFill"></image>
+								<image :src="picUrl+'icon_left@3x.png'" style="width: 40rpx; height: 40rpx;" mode="scaleToFill"></image>
 							</view>
 						</picker>
 					</view>
@@ -87,7 +87,7 @@
 			</view>
 			<view class="config-item">
 				<view class="config-item-pic">
-					<image src="../../../static/icon_hunyin@3x.png" style="width: 60rpx; height: 60rpx;" mode="scaleToFill"></image>
+					<image :src="picUrl+'icon_hunyin@3x.png'" style="width: 60rpx; height: 60rpx;" mode="scaleToFill"></image>
 				</view>
 				<view class="config-item-info">
 					<view class="config-item-info-detail">
@@ -96,11 +96,11 @@
 						</view>
 						<picker @change="bindMarriageChange" :value="marriage" :range="marriageList">
 							<view v-if="!judgeSelected(marriage)" class="info-table-item-detail-bd-unselected">
-								<image src="../../../static/icon_left@3x.png" style="width: 40rpx; height: 40rpx;" mode="scaleToFill"></image>
+								<image :src="picUrl+'icon_left@3x.png'" style="width: 40rpx; height: 40rpx;" mode="scaleToFill"></image>
 							</view>
 							<view v-if="judgeSelected(marriage)" class="info-table-item-detail-bd-selected">
 								<text>{{marriage}}</text>
-								<image src="../../../static/icon_left@3x.png" style="width: 40rpx; height: 40rpx;" mode="scaleToFill"></image>
+								<image :src="picUrl+'icon_left@3x.png'" style="width: 40rpx; height: 40rpx;" mode="scaleToFill"></image>
 							</view>
 						</picker>
 					</view>
@@ -111,9 +111,11 @@
 </template>
 
 <script>
+	import {picUrl as picUrlUtils} from '@/utils/api.js'
 	export default {
 		data() {
 			return {
+				picUrl: '',
 				direction: '',
 				direction_selected: 0,
 				birthday: '',
@@ -125,6 +127,9 @@
 				marriageList: ['单身', '柏拉图式', '复杂的', '恋爱中', '刚分手', '已婚', '离婚']
 				
 			}
+		},
+		created() {
+			this.picUrl = picUrlUtils
 		},
 		methods: {
 			radioChange(e) {
@@ -168,17 +173,16 @@
 				// console.log('value: '+e.target.value)
 				// console.log('string: '+this.occupationList[e.target.value])
 				this.marriage = this.marriageList[e.target.value]
-			}
+			},
+			// 手机号
+			getPhoneNumber(e) {  
+			                console.log(e.detail.errMsg);  
+			                console.log(e.detail.iv);  
+			                console.log(e.detail.encryptedData);  
+			            } 
 		}
 	}
 	
-	Page({
-	  getPhoneNumber (e) {
-	    console.log(e.detail.errMsg)
-	    console.log(e.detail.iv)
-	    console.log(e.detail.encryptedData)
-	  }
-	})
 
 </script>
 

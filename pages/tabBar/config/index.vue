@@ -2,7 +2,7 @@
 	<view class="app-container">
 		<view class="config-item">
 			<view class="config-item-pic">
-				<image src="../../../static/icon_location@3x.png" style="width: 60rpx; height: 60rpx;" mode="scaleToFill"></image>
+				<image :src="picUrl+'icon_location@3x.png'" style="width: 60rpx; height: 60rpx;" mode="scaleToFill"></image>
 			</view>
 			<view class="config-item-info">
 				<view class="config-item-info-detail">
@@ -17,7 +17,7 @@
 		</view>
 		<view class="config-item">
 			<view class="config-item-pic">
-				<image src="../../../static/icon_img@3x.png" style="width: 60rpx; height: 60rpx;" mode="scaleToFill"></image>
+				<image :src="picUrl+'icon_img@3x.png'" style="width: 60rpx; height: 60rpx;" mode="scaleToFill"></image>
 			</view>
 			<view class="config-item-info">
 				<view class="config-item-info-detail">
@@ -32,7 +32,7 @@
 		</view>
 		<view class="config-item">
 			<view class="config-item-pic">
-				<image src="../../../static/icon_about@3x.png" style="width: 60rpx; height: 60rpx;" mode="scaleToFill"></image>
+				<image :src="picUrl+'icon_about@3x.png'" style="width: 60rpx; height: 60rpx;" mode="scaleToFill"></image>
 			</view>
 			<view class="config-item-info">
 				<view class="config-item-info-detail">
@@ -49,18 +49,24 @@
 </template>
 
 <script>
+	import {picUrl as picUrlUtils} from '@/utils/api.js'
 	export default {
 		data() {
 			return {
+				picUrl: '',
 				href: 'https://uniapp.dcloud.io/component/README?id=uniui',
 				GPSselected: false,
 				albumSelected: false,
 				infoSelected: false
 			}
 		},
+		created() {
+			this.picUrl = picUrlUtils
+		},
 		methods: {
 			GPSSwitchChange : function (e) {
 				this.GPSselected = e.target.value
+				
 				console.log('switch1 发生 change 事件，携带值为', e.target.value)
 			},
 			albumSwitchChange: function (e) {
